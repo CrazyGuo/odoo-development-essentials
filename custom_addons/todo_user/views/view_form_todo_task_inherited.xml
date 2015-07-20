@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- extends the to-do form view-->
+        <record id="view_form_todo_task_inherited" model = "ir.ui.view">
+            <field name="name">Todo Task Form - User extension</field>
+            <field name="model">todo.task</field>
+            <field name="inherit_id" ref="todo_app.view_form_todo_task"/>
+            <field name="arch" type="xml">
+                <!-- places the user_id dropdown after the name -->
+                <field name="name" position="after">
+                    <field name="user_id"/>
+                </field>
+                <!-- adds the date_deadline field in front of the is_done checkbox -->
+                <field name="is_done" position="before">
+                    <field name="date_deadline"/>
+                </field>
+                <!-- hides the "active" checkbox -->
+                <field name="active" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <!-- change the label of name -->
+                <field name="name" position="attributes">
+                    <attribute name="string">I have to...</attribute>
+                </field>
+                <!-- change the label of date_deadline -->
+                <field name="date_deadline" position="attributes">
+                    <attribute name="string">The ultimate deadline is</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!-- extends the to-do tree view -->
+        <record id="view_tree_todo_task_inherited" model="ir.ui.view">
+            <field name="name">Todo Task tree - User Extention</field>
+            <field name="model">todo.task</field>
+            <field name="inherit_id" ref="todo_app.view_tree_todo_task"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="user_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- extends the to-do search view -->
+        <record id="view_filter_todo_task_inherited" model="ir.ui.view">
+            <field name="name">Todo Task Filter - User extension</field>
+            <field name="model">todo.task</field>
+            <field name="inherit_id" ref="todo_app.view_filter_todo_task"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="user_id"/>
+                    <field name="filter_my_tasks" string="My Tasks"
+                           domain="[('user_id', 'in', [uid,False])]"/>
+                    <field name="filter_not_assigned" string="Not Assigned"
+                           domain="[('user_id, '=', False)]"/>
+                </field>
+            </field>
+        </record>
+   </data>
+</openerp>

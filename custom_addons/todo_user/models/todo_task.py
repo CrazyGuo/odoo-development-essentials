@@ -8,6 +8,7 @@ class TodoTask(models.Model):
     date_deadline = fields.Date("Deadline")
     name = fields.Char(help = "What needs to be done?")
 
+    # Make the user only clear his own done tasks
     @api.multi
     def do_clear_done(self):
         domain = [('is_done', '=', True),
@@ -17,6 +18,7 @@ class TodoTask(models.Model):
         done_recs.write({"active" : False})
         return
 
+    # Make toggle done only possible by the responsible user
     @api.one
     def do_toggle_done(self):
         if self.user_id != self.env.user | self.user_id == False:

@@ -43,7 +43,7 @@
         </record>
 
         <!--Creates the "search" view-->
-        <record id="view_filter_todo_taks" model="ir.ui.view">
+        <record id="view_filter_todo_task" model="ir.ui.view">
             <field name="name">To-do Task Filter</field>
             <field name="model">todo.task</field>
             <field name="arch" type="xml">
