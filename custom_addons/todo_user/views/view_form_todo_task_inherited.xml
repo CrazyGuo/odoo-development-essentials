@@ -27,6 +27,13 @@
                 <field name="date_deadline" position="attributes">
                     <attribute name="string">The ultimate deadline is</attribute>
                 </field>
+                <!-- Add social media to the To-do form -->
+                <sheet position="after">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </sheet>
             </field>
         </record>
 
@@ -57,6 +64,18 @@
                            domain="[('user_id', '=', False)]"/>
                     </search>
                <!-- </field> -->
+            </field>
+        </record>
+
+        <!-- modify menu item name -->
+        <record id="todo_app.menu_todo_task" model="ir.ui.menu">
+            <field name="name">My To-Do</field>
+        </record>
+
+        <!-- action to open To-Do task list -->
+        <record model="ir.actions.act_window" id="todo_app.action_todo_task">
+            <field name="context">
+                {"search_default_filter_my_tasks":True}
             </field>
         </record>
    </data>

@@ -3,7 +3,8 @@ from openerp import fields, models, api
 
 
 class TodoTask(models.Model):
-    _inherit = "todo.task"
+    _name = "todo.task"
+    _inherit = ["todo.task", "mail.thread"]
     user_id = fields.Many2one("res.users", "responsible")
     date_deadline = fields.Date("Deadline")
     name = fields.Char(help = "What needs to be done?")
