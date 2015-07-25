@@ -37,6 +37,7 @@
                   sequence="20"
                   action="action_todo_stage"/>
 
+        <!-- form view for the tasks -->
         <record id="view_form_todo_task_ui" model="ir.ui.view">
             <field name="name">view_form_todo_task_ui</field>
             <field name="model">todo.task</field>
@@ -72,16 +73,48 @@
                                     name="%(todo_app.action_todo_task)d"
                                     string=""
                                     context="{'search_default_user_id': user_id, 'default_user_id': user_id}"
-                                    help="Other todo's for this user">
-                                <field string="To-dos" name="user_todo_count" widget="statinfo"/>
+                                    help="Other To-Dos for this user">
+                                <field string="To-Dos" name="user_todo_count" widget="statinfo"/>
                             </button>
                         </div>
+
+                        <!-- add fields to the form -->
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="date_deadline"/>
+                                <separator string="Reference"/>
+                                <br/>
+                                <field name="refers_to"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="tag_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
                     </sheet>
                     <!-- history and communication: -->
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers"/>
                         <field name="message_ids" widget="mail_thread"/>
                     </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- form view for the task stages -->
+        <record id="view_form_todo_stages_ui" model="ir.ui.view">
+            <field name="name">view_form_todo_stages_ui</field>
+            <field name="model">todo.task.stage</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form>
+                <notebook>
+                    <page string="Whiteboard" name="whiteboard">
+                        <field name="docs"/>
+                    </page>
+                    <page name="second page">
+                        <!-- second page content -->
+                    </page>
+                </notebook>
                 </form>
             </field>
         </record>

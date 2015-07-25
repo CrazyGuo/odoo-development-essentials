@@ -45,7 +45,7 @@ class TodoTask(models.Model):
     _inherit = "todo.task"
     stage_id = fields.Many2one("todo.task.stage", "Stage")
     tag_ids = fields.Many2many("todo.task.tag", string="Tags")
-    refers_to = fields.Reference(referencable_models, "Refers to")
+    refers_to = fields.Reference(referencable_models, string="Refers to")
     stage_fold = fields.Boolean("Stage Folded?", compute="_compute_stage_fold", search="_search_stage_fold",
                                 inverse="_inverse_stage_fold")
     stage_state = fields.Selection(related="stage_id.state", string="Stage State")
@@ -62,12 +62,14 @@ class TodoTask(models.Model):
     def _inverse_stage_fold(self):
         self.stage_id.fold = self.stage_fold
 
+    # check if the name of the task is longer then 5 characters
     @api.one
     @api.constrains("name")
     def _check_name_size(self):
         if len(self.name) < 5:
             raise ValidationError("Must have 5 chars!")
 
+    # compute the amount of tasks for the user
     @api.one
     def compute_user_todo_count(self):
         self.user_todo_count = self.search_count([("user_id", "=", self.user_id.id)])
