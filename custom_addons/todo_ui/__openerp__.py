@@ -4,7 +4,7 @@
  'version': '1.0',
  'author': 'Johan Vergeer',
  'maintainer': 'Johan Vergeer',
- 'depends': ['todo_app'],
+ 'depends': ['todo_app', 'todo_user'],
  'description': """
 User interface improvements to the To-Do app
 This module depends on todo_app and todo_user
