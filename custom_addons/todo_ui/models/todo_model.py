@@ -3,6 +3,7 @@
 from openerp import models, fields, api
 from openerp.addons.base.res import res_request
 from openerp.exceptions import ValidationError
+import datetime
 
 
 def referencable_models(self):
@@ -75,3 +76,10 @@ class TodoTask(models.Model):
         self.user_todo_count = self.search_count([("user_id", "=", self.user_id.id)])
 
     user_todo_count = fields.Integer("User To-Do Count", compute="compute_user_todo_count")
+
+    @api.one
+    def date_deadline_passed(self):
+        if not self.date_deadline > datetime.date.today():
+            return True
+        else:
+            return False
