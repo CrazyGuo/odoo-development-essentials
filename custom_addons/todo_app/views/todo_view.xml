@@ -56,8 +56,6 @@
                             domain="[('is_done','!=',False)]"/>
                 </search>
             </field>
-        </record>
-
         <!-- Action to open To-do task list -->
         <act_window id="action_todo_task"
                     name="To-do Task"
