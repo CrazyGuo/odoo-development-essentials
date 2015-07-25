@@ -58,12 +58,23 @@
                         <!-- title and subtitle of the form -->
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only"/>
-                            <h1><field name="name"/></h1>
+                            <h1><field name="name" style="width:600px;"/></h1>
                             <h3>
                                 <span class="oe_read_only">By </span>
                                 <label for="user_id" class="oe_edit_only"/>
                                 <field name="user_id" class="oe_inline"/>
                             </h3>
+                        </div>
+                        <!-- smart buttons top-right corner of the form -->
+                        <div name="buttons" class="oe_right oe_button_box">
+                            <button class="oe_stat_button"
+                                    type="action" icon="fa-tasks"
+                                    name="%(todo_app.action_todo_task)d"
+                                    string=""
+                                    context="{'search_default_user_id': user_id, 'default_user_id': user_id}"
+                                    help="Other todo's for this user">
+                                <field string="To-dos" name="user_todo_count" widget="statinfo"/>
+                            </button>
                         </div>
                     </sheet>
                     <!-- history and communication: -->
