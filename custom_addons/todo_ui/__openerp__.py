@@ -7,11 +7,9 @@
  'depends': ['todo_app'],
  'description': """
 User interface improvements to the To-Do app
-
+This module depends on todo_app and todo_user
  """,
- 'website': '',
- 'data': [''],
+ 'website': 'https://github.com/johanvergeer/Odoo-dev/tree/master/custom_addons/todo_ui',
  'installable': True,
- 'images': [],
  'license': 'AGPL-3',
  }

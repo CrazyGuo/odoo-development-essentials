@@ -3,7 +3,7 @@
     <data>
         <!-- extends the to-do form view-->
         <record id="view_form_todo_task_inherited" model = "ir.ui.view">
-            <field name="name">Todo Task Form - User extension</field>
+            <field name="name">To-do Task Form - User extension</field>
             <field name="model">todo.task</field>
             <field name="inherit_id" ref="todo_app.view_form_todo_task"/>
             <field name="arch" type="xml">
@@ -39,7 +39,7 @@
 
         <!-- extends the to-do tree view -->
         <record id="view_tree_todo_task_inherited" model="ir.ui.view">
-            <field name="name">Todo Task tree - User Extention</field>
+            <field name="name">To-do Task Tree - User extention</field>
             <field name="model">todo.task</field>
             <field name="inherit_id" ref="todo_app.view_tree_todo_task"/>
             <field name="arch" type="xml">
@@ -51,7 +51,7 @@
 
         <!-- extends the to-do search view -->
         <record id="view_filter_todo_task_inherited" model="ir.ui.view">
-            <field name="name">Todo Task Filter - User extension</field>
+            <field name="name">To-do Task Filter - User extension</field>
             <field name="model">todo.task</field>
             <field name="inherit_id" ref="todo_app.view_filter_todo_task"/>
             <field name="arch" type="xml">
