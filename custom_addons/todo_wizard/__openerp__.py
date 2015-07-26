@@ -9,8 +9,9 @@
  'description': """
 To-Do Task Management Assistand
  """,
- 'website': 'http://www.b-informed.nl',
- 'data': [''],
+ 'website': 'https://github.com/johanvergeer/Odoo-dev/tree/master/custom_addons/todo_wizard',
+ 'data': ['views/todo_wizard_view.xml',
+          ],
  'installable': True,
  'images': [],
  'license': 'AGPL-3',
