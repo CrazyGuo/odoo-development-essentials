@@ -5,7 +5,7 @@
  'version': '1.0',
  'author': 'Johan Vergeer',
  'maintainer': 'Johan Vergeer',
- 'depends': ['todo_user'],
+ 'depends': ['todo_user','todo_app'],
  'description': """
 To-Do Task Management Assistand
  """,
